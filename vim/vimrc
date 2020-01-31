@@ -1,0 +1,45 @@
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+
+
+syntax on               高亮符号
+set nobackup        "no backup file"
+set nocompatible    "no VI 兼容性,比如上下左右键可以移动"
+set noswapfile
+set noundofile
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent                                   "自动对齐"
+set cindent                                        "C式自动对齐"
+set nu                                             "行号"
+set incsearch                                   "增量查找"
+set hlsearch                                   "高亮搜索关键字"
+set nowrapscan                                   "禁止文件两端循环查找"
+set laststatus=2                              "常显状态栏"
+set showcmd                                        "显示输入的命令"
+set showmatch                                   "匹配模式, 如左右括号匹配"
+set ruler                                        "状态栏标尺"
+set cursorline                                   "突出显示光标行"
+set directory=.,$TEMP                         "windows设置临时文件目录"
+set fileencodings=utf-8,ucs-bom               "设置文件encoding列表"
+set guifont=Inziu\ IosevkaCC\ Slab\ SC:h14:cANSI:qDRAFT
+colorscheme murphy
+highlight CursorLine term=bold cterm=bold guibg=Grey40
+
+filetype off
+filetype plugin indent on
+set rtp+=$VIM/vimfiles/bundle/vundle
+set rtp+=~/.vim/bundle/vundle
+call vundle#begin('~/.vim/bundle')
+
+Bundle 'gmarik/Vundle'
+Bundle 'bling/vim-airline'
+Bundle 'derekwyatt/vim-fswitch'
+Bundle 'scrooloose/nerdtree'
+Bundle 'drmikehenry/vim-fixkey'
+call vundle#end()
+
+nmap <M-o>  <ESC>:FSHere<CR>
+nmap <M-n>  <ESC>:NERDTreeToggle<CR>
